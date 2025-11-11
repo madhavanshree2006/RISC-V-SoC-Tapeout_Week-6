@@ -46,7 +46,7 @@ ls -la
 
 ```
 
-![1.png](week6%20day3/1.png)
+<p align="center"><img src="./ASSETS/1.png" alt="image 1"/></p>
 
 ---
 
@@ -59,7 +59,7 @@ magic -T sky130A.tech sky130_inv.mag &
 
 ```
 
-![2.png](week6%20day3/2.png)
+<p align="center"><img src="./ASSETS/2.png" alt="image 2"/></p>
 
 ---
 
@@ -79,7 +79,7 @@ Example output:
 Transistor width < 0.42um (diff/tap.2)
 ```
 
-![3.png](week6%20day3/3.png)
+<p align="center"><img src="./ASSETS/3.png" alt="image 3"/></p>
 
 ---
 
@@ -97,13 +97,13 @@ ext2spice
 box
 ```
 
-![4.png](week6%20day3/4.png)
+<p align="center"><img src="./ASSETS/4.png" alt="image 4"/></p>
 
-![5.png](week6%20day3/5.png)
+<p align="center"><img src="./ASSETS/5.png" alt="image 5"/></p>
 
 This process creates a file named **sky130_inv.spice** containing all device and parasitic details.
 
-![6.png](week6%20day3/6.png)
+<p align="center"><img src="./ASSETS/6.png" alt="image 6"/></p>
 
 ---
 
@@ -133,14 +133,14 @@ run
 
 ```
 
-![7.png](week6%20day3/7.png)
+<p align="center"><img src="./ASSETS/7.png" alt="image 7"/></p>
 
 <br>
 
 <p align="center">⬇️</p>
 <br>
 
-![8.png](week6%20day3/8.png)
+<p align="center"><img src="./ASSETS/8.png" alt="image 8"/></p>
 
 ---
 
@@ -153,7 +153,7 @@ ngspice sky130_inv.spice
 
 ```
 
-![9.png](week6%20day3/9.png)
+<p align="center"><img src="./ASSETS/9.png" alt="image 9"/></p>
 
 Inside the simulator:
 
@@ -162,11 +162,11 @@ plot Y vs time A
 
 ```
 
-![10.png](week6%20day3/10.png)
+<p align="center"><img src="./ASSETS/10.png" alt="image 10"/></p>
 
 Full view of the plot:
 
-![11.png](week6%20day3/11.png)
+<p align="center"><img src="./ASSETS/11.png" alt="image 11"/></p>
 
 The plotted waveform displays **input (A)** and **output (Y)** signals, from which you can calculate:
 
@@ -174,7 +174,7 @@ The plotted waveform displays **input (A)** and **output (Y)** signals, from whi
 - Fall Time (t_f)
 - Propagation Delay (t_pHL / t_pLH)
 
-![12.png](week6%20day3/12.png)
+<p align="center"><img src="./ASSETS/12.png" alt="image 12"/></p>
 
 ---
 
@@ -191,7 +191,7 @@ drc why
 
 Output:
 
-![13.png](week6%20day3/13.png)
+<p align="center"><img src="./ASSETS/13.png" alt="image 13"/></p>
 
 ```
 No errors found.
