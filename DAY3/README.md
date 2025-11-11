@@ -239,7 +239,7 @@ By completing this session, you successfully:
 
 ### ⏭️ Next Up
 
-➡ **Day 4 — Pre-Layout Timing Analysis and Clock Tree Role**
+➡ **[Day 4 — Pre-Layout Timing Analysis and Clock Tree Role](https://github.com/madhavanshree2006/RISC-V-SoC-Tapeout_Week-6/tree/main/DAY4)**
 
 Next, you’ll learn how to convert cells into **LEF format**, perform **Static Timing Analysis (STA)**, and understand the **Clock Tree Synthesis (CTS)** process.
 
