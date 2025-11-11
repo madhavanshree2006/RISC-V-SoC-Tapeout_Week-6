@@ -1,228 +1,209 @@
-### Inception of Open-Source EDA, OpenLANE, and Sky130 PDK
+# ⚡ Week 6 – Day 1
+
+## **Foundations of Open-Source EDA, OpenLANE Flow, and Sky130 PDK**
 
 ---
 
-### 💬 1. Talking to Computers
-
-Computers understand only **electrical signals** represented by binary logic (**1s and 0s**).
-
-To communicate with them, humans use **layers of abstraction** that gradually translate high-level concepts into hardware-understandable instructions.
-
-🧠 **Flow of Translation:**
-
-- High-level programs (C, Python)
-    
-    ↓
-    
-- Compiled to **Assembly code** (specific to ISA)
-    
-    ↓
-    
-- Converted to **Machine code (binary)**
-    
-    ↓
-    
-- Executed by **Logic gates & transistors**
-
-Each level bridges the gap between **human-written logic** and **electronic hardware**, forming the fundamental communication chain of computation.
+### 🧩 **RISC-V SoC Tapeout Program – Physical Design Track**
 
 ---
 
-### ⚙️ 2. Chip and Package Fundamentals
+## 🧠 **Theoretical Understanding**
 
-Modern processors and SoCs are built on a small **silicon die**, later enclosed inside a **package** for protection and connectivity.
+The first day of Week 6 marks the transition from digital design to **physical implementation** — where our Verilog descriptions begin their transformation into silicon layouts.
 
-A common example is the **QFN-48 (Quad Flat No-Lead)** package with 48 electrical contacts.
+This session focused on exploring the **open-source physical design ecosystem**, the **OpenLANE RTL-to-GDSII flow**, and the **SkyWater 130 nm Process Design Kit (PDK)**, which together form the base for open silicon prototyping.
 
-🔍 **Inside the package:**
+---
 
-- **Die/Core** → performs computation
-- **Pads** → metal terminals for input/output
-- **Bond wires** → connect die pads to package leads
-- **Leads** → metallic pads soldered to the PCB
+### 🔍 **1. Overview of the ASIC Design Flow**
 
-From the top-down view:
+An **Application-Specific Integrated Circuit (ASIC)** is a chip built for a dedicated purpose.
 
-**Board → Chip → Die → Core → IP**, each layer adds specific functionality.
+The process that converts RTL (Register Transfer Level) code into a **fabrication-ready GDSII layout** is known as the **RTL-to-GDSII flow**.
 
-| Term | Description |
+| **Stage** | **Purpose** |
 | --- | --- |
-| **Package** | Protective housing that connects silicon to PCB |
-| **Die/Chip** | Actual semiconductor area fabricated using CMOS |
-| **Core** | Central processing logic |
-| **Pads** | Metal contacts on die for electrical connection |
-| **IP Block** | Reusable functional module like UART, GPIO, or RISC-V core |
+| RTL Design | Hardware behavior written in Verilog |
+| Synthesis | Translates RTL into logic gates using a standard cell library |
+| Floorplanning | Defines chip area, aspect ratio, and power grid structure |
+| Placement | Physically arranges logic cells on the chip area |
+| CTS | Builds the clock distribution network |
+| Routing | Connects all logic cells with metal interconnects |
+| Sign-off | Checks for design rule violations and timing issues |
+| GDSII Export | Generates layout data for fabrication |
 
 ---
 
-### 🧠 3. RISC-V Architecture
+### 🧩 **2. Open-Source EDA Toolchain**
 
-**RISC-V (Reduced Instruction Set Computer – Version 5)** is an **open-source ISA** that defines how software interacts with hardware through instructions and registers — **royalty-free and highly modular**.
+The shift from commercial to open-source tools has made VLSI design accessible to students and researchers worldwide.
 
-⚙️ **Execution Chain:**
+Below are the key tools involved in each stage of the flow:
 
-High-Level Code
-
-↓
-
-RISC-V Assembly
-
-↓
-
-Machine Code (Binary)
-
-↓
-
-Processor Hardware (Logic Gates & Transistors)
-
-🔩 Hardware implementations (like **PicoRV32**) are written in **Verilog/VHDL**.
-
-This RTL code is then transformed into a **physical chip** through the **RTL-to-GDSII flow**, enabling fabrication using open tools like OpenLANE and Sky130.
-
----
-
-### 💻 4. From Software Applications to Hardware
-
-Applications such as calculators or stopwatches rely on a **software-to-hardware stack** that bridges human code and physical signals.
-
-🧩 **System Software Components:**
-
-- **Operating System (OS)** → manages memory, I/O, and scheduling
-- **Compiler** → converts high-level programs into assembly
-- **Assembler** → translates assembly into binary machine code
-
-📜 **Architecture-specific Assembly Styles:**
-
-| Architecture | Assembly Style |
+| **Design Stage** | **Tool** |
 | --- | --- |
-| Intel x86 | x86 Assembly |
-| ARM | ARM Assembly |
-| MIPS | MIPS Assembly |
-| RISC-V | RISC-V Assembly |
+| Logic Synthesis | **Yosys** |
+| Technology Mapping | **ABC** |
+| Static Timing Analysis | **OpenSTA** |
+| Floorplanning, Placement, Routing | **OpenROAD / TritonRoute** |
+| Clock Tree Synthesis | **TritonCTS** |
+| DRC/LVS Checks | **Magic**, **Netgen** |
+| Layout Visualization | **KLayout** |
 
-When the binary is loaded into memory, the **processor fetches, decodes, and executes** each instruction — turning software into hardware activity.
-
----
-
-### 🏗️ 5. Open-Source Digital ASIC Design Ecosystem
-
-To build an open-source ASIC, three major components must work together:
-
-1. 🧾 **Open-Source RTL Designs** – logical description (Verilog/VHDL)
-2. 🧰 **Open-Source EDA Tools** – automate synthesis, placement, and verification
-3. ⚙️ **Open-Source PDK** – defines the process technology and design rules
-
-When all three are open, a complete **reproducible ASIC flow** can be achieved.
-
-📘 **Examples:**
-
-- **RTL Design Repositories:** OpenCores, LibreCores, GitHub SoC projects
-- **EDA Tools:** OpenROAD, Qflow, Magic
-- **PDK:** SkyWater Sky130 (130nm, released in 2020 by Google & SkyWater)
-
-This open ecosystem democratizes chip design by removing the need for proprietary tools.
+All these tools integrate seamlessly under one automated environment — **OpenLANE**.
 
 ---
 
-### 🔬 6. Importance of Sky130 Technology
+### ⚙️ **3. The OpenLANE Flow**
 
-Although **130 nm** is considered mature, it remains **reliable and affordable**, perfect for **IoT, embedded, and analog applications**.
+**OpenLANE** is a fully automated open-source RTL-to-GDSII flow built on top of the **SkyWater Sky130 PDK**.
 
-📊 **Highlights:**
+It streamlines each design stage through Tcl-based scripting and runs inside a Docker container for environment consistency.
 
-- Holds ~6% of global semiconductor market (~$4.5B)
-- Used in **Intel Pentium 4 (3.5 GHz)** and **RISC-V CPUs** from OSU
-- The open release of **Sky130 PDK** ignited the global **open-silicon movement**, making fabrication accessible to students and innovators.
+**Main Highlights:**
 
----
+- Complete RTL → GDSII automation
+- Step-wise modular execution (`run_synthesis`, `run_floorplan`, etc.)
+- Built-in timing, power, and physical verification
+- Supports multiple standard-cell libraries (`sky130_fd_sc_hd`, `hs`, `ll`)
 
-### 🔄 7. Simplified RTL-to-GDSII Flow
+The diagram below shows how RTL data passes through various stages to generate a layout:
 
-This flow converts Verilog RTL into a **fabrication-ready layout (GDSII)**.
-
-| Stage | Description |
-| --- | --- |
-| **Synthesis** | RTL → Gate-level netlist using standard cells |
-| **Floorplanning** | Defines die/core area and power grid |
-| **Placement** | Arranges cells for optimal area/timing |
-| **Clock Tree Synthesis (CTS)** | Builds balanced clock distribution |
-| **Routing** | Connects cells using metal interconnects |
-| **Sign-off** | DRC, LVS, and STA verification before tape-out |
-
-📑 **Key Checks:**
-
-- ✅ **DRC:** Verifies layout constraints
-- ✅ **LVS:** Matches layout with schematic
-- ✅ **STA:** Ensures timing closure
-
-Outputs include **GDSII layout, netlists, and timing/power reports** — ready for fabrication.
+> (Insert diagram: RTL → Synthesis → Floorplan → Placement → CTS → Routing → GDSII)
+> 
 
 ---
 
-### 🧩 8. OpenLANE and Strive Chipsets
+### 🧮 **4. SkyWater 130 nm PDK**
 
-**OpenLANE** is a **fully automated RTL-to-GDSII flow** built around **OpenROAD** and integrated with the **Sky130 PDK**.
+The **Sky130 PDK**, jointly released by **Google** and **SkyWater Technology Foundry**, is the world’s first **fully open-source process design kit**.
 
-🧠 **Tool Integration Overview:**
+It includes:
 
-| Function | Tool |
-| --- | --- |
-| Logic Synthesis | Yosys |
-| Floorplan & Placement | OpenROAD / RePlAce |
-| CTS | TritonCTS |
-| Routing | FastRoute / TritonRoute |
-| DRC Check | Magic |
-| LVS Check | Netgen |
-| Timing Analysis | OpenSTA |
-| GDS Export & View | KLayout, Magic |
+- Design rule and layout verification parameters
+- Device models (NMOS, PMOS)
+- Standard cell libraries (HD, HS, LL variants)
+- Layer definitions and process information
 
-**Strive Chipsets** are open-source SoCs fabricated via **OpenLANE + Sky130**, containing RISC-V cores, SRAM, and I/O pads — serving as reference platforms for open-source design.
+This PDK serves as the connection between **EDA tools** and **physical chip manufacturing**.
 
 ---
 
-### 🗂️ 9. OpenLANE Flow and Directory Structure
+### 🔧 **5. Understanding Synthesis**
 
-The OpenLANE directory ensures organized and reproducible chip design.
+The synthesis stage is the first crucial step in physical design.
 
-```
-OpenLANE/
-├── designs/      →  Design folders (with config.tcl)
-├── flow/         →  Automation scripts & Makefiles
-├── scripts/      →  Stage-specific TCL scripts
-├── pdks/         →  Installed process kits (e.g., sky130A)
-├── openroad/     →  Core EDA engine
-├── runs/         →  Generated results & logs
-└── tools/        →  External binaries
+Here, **Yosys** converts Verilog RTL into a **gate-level netlist** using standard cells from the PDK.
 
-```
+It provides:
 
-🧾 **Command Flow:**
+- **Cell count** – total number of logic elements used
+- **Area estimation** – predicted silicon area before layout
+- **Flip-flop ratio** – ratio of sequential to combinational logic
+
+These parameters offer insight into circuit complexity and guide later physical optimization.
+
+---
+
+## 🧭 **Practical Implementation**
+
+### 🔹 Step 1: Launching OpenLANE and Setting Up the Environment
+
+To begin, I entered the OpenLANE directory and invoked the interactive Docker environment.
 
 ```bash
-cd OpenLane/
-make mount
-./flow.tcl -design <design_name> -tag <run_name>
+cd ~/work/tools/openlane_working_dir/openlane
+docker
+./flow.tcl -interactive
+package require openlane 0.9
 
 ```
 
-📁 **Generated Outputs:**
-
-- `reports/` → timing, power, area data
-- `results/` → final LEF, DEF, and GDS files
-- `logs/` → step-by-step tool outputs
+*(Screenshot: Docker initialization and OpenLANE package load)*
 
 ---
 
-### 🧾 10. Summary
+### 🔹 Step 2: Design Preparation
 
-**Week 6 – Day 1** establishes the foundation of **open-source VLSI design** and connects software abstraction with silicon realization.
+I prepared the reference SoC design `picorv32a`, which automatically generates configuration files and working directories.
 
-🪜 **Key Takeaways:**
+```bash
+prep -design picorv32a
 
-- Understanding how computers interpret binary logic
-- Differentiating between package, die, and core
-- Exploring the open RISC-V ISA
-- Learning about RTL, EDA, and PDK integration
-- Understanding the RTL-to-GDSII pipeline and OpenLANE automation
+```
 
-Together with the **Sky130 PDK**, these tools make **chip design and fabrication truly open**, empowering researchers, students, and innovators worldwide 🌍.
+The above command initializes a new run directory inside `designs/picorv32a/runs/`, where all flow reports (synthesis, placement, etc.) are stored.
+
+*(Screenshot: Design preparation outputs)*
+
+---
+
+### 🔹 Step 3: Running Logic Synthesis
+
+The synthesis stage was executed using **Yosys**, which translates RTL code into a technology-mapped netlist.
+
+```bash
+run_synthesis
+
+```
+
+After synthesis, I examined the generated report:
+
+```bash
+less runs/30-10_08-35/reports/synthesis/1-yosys_4.stat.rpt
+
+```
+
+This file summarizes the total number of logic cells, flip-flops, and overall logic area.
+
+*(Screenshot: Yosys synthesis report output)*
+
+---
+
+### 🔹 Step 4: Report Interpretation
+
+From the synthesis report, we can calculate the **flip-flop ratio** as:
+
+Flop Ratio=Number of DFFsTotal Cells=161314876=0.1084 (10.84%)Flop\ Ratio = \frac{Number\ of\ DFFs}{Total\ Cells} = \frac{1613}{14876} = 0.1084 \ (10.84\%)
+
+Flop Ratio=Total CellsNumber of DFFs=148761613=0.1084 (10.84%)
+
+This ratio helps estimate sequential logic density.
+
+*(Screenshot: Calculation result)*
+
+---
+
+### 🔹 Step 5: Frequently Used Commands
+
+| **Command** | **Description** |
+| --- | --- |
+| `docker` | Launches OpenLANE container |
+| `./flow.tcl -interactive` | Starts interactive OpenLANE mode |
+| `package require openlane 0.9` | Loads OpenLANE package |
+| `prep -design picorv32a` | Prepares design environment |
+| `run_synthesis` | Executes logic synthesis |
+| `less runs/.../1-yosys_4.stat.rpt` | Views synthesis report |
+
+---
+
+### 🧠 **Summary – Day 1 Highlights**
+
+| **Topic** | **Key Learning** |
+| --- | --- |
+| **RTL-to-GDSII Flow** | The full process of converting RTL to a silicon-ready layout |
+| **OpenLANE Framework** | Open-source, automated design flow integrating multiple EDA tools |
+| **Sky130 PDK** | Open-source process library providing device models and DRC/LVS rules |
+| **Synthesis Phase** | First physical design step that produces gate-level netlist |
+| **Yosys Reports** | Contain metrics like area, cell count, and logic ratios for analysis |
+
+---
+
+### 🔗 **Next Step**
+
+➡️ Continue with **Day 2: Floorplanning and Library Cells**,
+
+where you’ll study **core vs die areas**, **aspect ratio**, **utilization factors**, and perform **floorplan + placement** runs using OpenLANE, followed by visualization in **Magic**.
+
+---
