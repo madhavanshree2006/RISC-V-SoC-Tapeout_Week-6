@@ -306,6 +306,6 @@ These models are stored in `.lib` format and help STA tools estimate delay and p
 
 ## 🔗 Next Step
 
-➡️ Proceed to **Day 3 — Custom Library Cell Design using Magic & ngspice**
+➡️ Proceed to **[Day 3 — Custom Library Cell Design using Magic & ngspice](https://github.com/madhavanshree2006/RISC-V-SoC-Tapeout_Week-6/tree/main/DAY3)**
 
 You’ll create your own **CMOS inverter**, perform **DRC/LVS checks**, extract a **SPICE netlist**, and measure its **delay and power characteristics**.
