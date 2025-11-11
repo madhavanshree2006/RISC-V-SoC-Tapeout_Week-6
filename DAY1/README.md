@@ -204,7 +204,7 @@ This ratio helps estimate sequential logic density.
 
 ### 🔗 **Next Step**
 
-➡️ Continue with **Day 2: Floorplanning and Library Cells**,
+➡️ Continue with **[Day 2: Floorplanning and Library Cells](https://github.com/madhavanshree2006/RISC-V-SoC-Tapeout_Week-6/tree/main/DAY2)**,
 
 where you’ll study **core vs die areas**, **aspect ratio**, **utilization factors**, and perform **floorplan + placement** runs using OpenLANE, followed by visualization in **Magic**.
 
