@@ -57,7 +57,7 @@ All these tools integrate seamlessly under one automated environment — **OpenL
 
 ### ⚙️ **3. The OpenLANE Flow**
 
-<p align="center"><img src="./ASSETS/0.ipg" alt="image 1"/></p>
+<p align="center"><img src="./ASSETS/0.jpg" alt="image 1"/></p>
 
 **OpenLANE** is a fully automated open-source RTL-to-GDSII flow built on top of the **SkyWater Sky130 PDK**.
 
@@ -121,7 +121,7 @@ docker
 package require openlane 0.9
 ```
 
-![1.png](attachment:57c86a2b-8b9e-4b03-915c-a572226f7983:1.png)
+<p align="center"><img src="./ASSETS/1.png" alt="image 1"/></p>
 
 ---
 
@@ -135,7 +135,7 @@ prep -design picorv32
 
 The above command initializes a new run directory inside `designs/picorv32a/runs/`, where all flow reports (synthesis, placement, etc.) are stored.
 
-![2.png](attachment:ae34f067-10c8-4423-982a-714129ad08ed:2.png)
+<p align="center"><img src="./ASSETS/2.png" alt="image 2"/></p>
 
 ---
 
@@ -147,9 +147,9 @@ The synthesis stage was executed using **Yosys**, which translates RTL code into
 run_synthesis
 ```
 
-![3.png](attachment:20559b05-bdac-4f00-a44b-453aaea11e11:3.png)
+<p align="center"><img src="./ASSETS/3.png" alt="image 3"/></p>
 
-![4.png](attachment:ea2acbc6-6aff-473f-a2cc-9e350a18a97a:4.png)
+<p align="center"><img src="./ASSETS/4.png" alt="image 4"/></p>
 
 After synthesis, I examined the generated report:
 
@@ -159,7 +159,7 @@ less runs/30-10_08-35/reports/synthesis/1-yosys_4.stat.rpt
 
 This file summarizes the total number of logic cells, flip-flops, and overall logic area.
 
-![5.png](attachment:efcb9788-caca-462f-af7d-ce177d15b389:5.png)
+<p align="center"><img src="./ASSETS/5.png" alt="image 5"/></p>
 
 ---
 
@@ -173,7 +173,7 @@ Flop Ratio=Total CellsNumber of DFFs=148761613=0.1084 (10.84%)
 
 This ratio helps estimate sequential logic density.
 
-![6.png](attachment:1aaded2b-a4ad-4628-815b-f823baa06095:6.png)
+<p align="center"><img src="./ASSETS/6.png" alt="image 6"/></p>
 
 ---
 
