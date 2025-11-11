@@ -382,7 +382,7 @@ By completing this session, you have:
 
 ### 🔗 **Next Step**
 
-➡️ Proceed to **Day 5 — Final Steps for RTL-to-GDS using TritonRoute and OpenSTA**
+➡️ Proceed to **[Day 5 — Final Steps for RTL-to-GDS using TritonRoute and OpenSTA](https://github.com/madhavanshree2006/RISC-V-SoC-Tapeout_Week-6/tree/main/DAY5)**
 Explore how the **detailed routing stage** completes physical implementation and how **post-layout timing verification** ensures sign-off quality results using **OpenSTA**.
 
 ---
