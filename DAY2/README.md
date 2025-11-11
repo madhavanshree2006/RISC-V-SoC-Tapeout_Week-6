@@ -23,7 +23,7 @@ A well-designed floorplan ensures:
 - Minimal routing congestion and timing issues
 - A balanced power network across the die
     
-    ![1.png](attachment:37b0d7dc-06ea-465d-ade3-f64b475d2e4b:1.png)
+<p align="center"><img src="./ASSETS/1.png" alt="image 1"/></p>
     
 
 ---
@@ -63,7 +63,7 @@ Its goal is to reduce **IR drop** and **ground bounce** by ensuring a steady sup
 
 A strong power grid ensures consistent performance and minimizes noise effects.
 
-![2.png](attachment:05e84176-b3d2-41a3-b3dd-b81ee82ee570:2.png)
+<p align="center"><img src="./ASSETS/2.png" alt="image 2"/></p>
 
 ---
 
@@ -78,7 +78,7 @@ Common methods include:
 - **Equidistant Pin Placement:** Pins spaced evenly on the boundary.
 - **Clustered Pin Placement:** Pins grouped based on module connectivity.
 
-![3.png](attachment:5fd5a8c2-aa50-45c5-b7f2-1847a3e4ed1c:3.png)
+<p align="center"><img src="./ASSETS/3.png" alt="image 3"/></p>
 
 ---
 
@@ -88,7 +88,7 @@ Once synthesis is complete, floorplanning can be executed using OpenLANE’s int
 
 AS usually follow the day1 steps to open the docker frome openlane folder and proceed from the synthesis part of day1 task 
 
-![4.png](attachment:b3fa075b-e4a2-4a41-85ec-6a976795a120:4.png)
+<p align="center"><img src="./ASSETS/4.png" alt="image 4"/></p>
 
 1st move to the openlane folder and follow the below cmds :
 
@@ -111,7 +111,7 @@ docker
 
 ```
 
-![5.png](attachment:62eb0b48-1891-4eab-9eb9-694617f9c6fc:5.png)
+<p align="center"><img src="./ASSETS/5.png" alt="image 5"/></p>
 
 This generates a **DEF file (`.def`)**, which defines the die size, core area, pin positions, and power grid structure.
 
@@ -129,7 +129,7 @@ This generates a **DEF file (`.def`)**, which defines the die size, core area, p
 
 ```
 
-![6.png](attachment:dd25ca57-b076-4421-aac5-94811089af22:6.png)
+<p align="center"><img src="./ASSETS/6.png" alt="image 6"/></p>
 
 ---
 
@@ -148,7 +148,7 @@ DIEAREA ( 0 0 ) ( 660685 671405 )
 
 **Area** = 660.685 × 671.405 = 443,587.21 μm²
 
-![7.png](attachment:384c77bf-5faf-40cf-84e5-6868f428a8a9:7.png)
+<p align="center"><img src="./ASSETS/7.png" alt="image 7"/></p>
 
 ---
 
@@ -180,9 +180,9 @@ magic -T $PDK_ROOT/sky130A/libs.tech/magic/sky130A.tech \
       def read picorv32a.floorplan.def &
 ```
 
-![8.png](attachment:e3ad75bc-9ea4-43f1-bb43-5dd5755c25fb:8.png)
+<p align="center"><img src="./ASSETS/8.png" alt="image 8"/></p>
 
-![9.png](attachment:8e9b88b3-9f94-47ad-bbdf-b604d0eb4130:9.png)
+<p align="center"><img src="./ASSETS/9.png" alt="image 9"/></p>
 
 You can now observe:
 
@@ -190,9 +190,8 @@ You can now observe:
 - Pin locations
 - Tap and decap cell placements
     
-    ![10.png](attachment:7dff9438-f4e3-4aee-a958-eed618b5c486:10.png)
+<p align="center"><img src="./ASSETS/10.png" alt="image 10"/></p>
     
-    ![13.png](attachment:106f15ee-8733-4185-bb79-77146f81c52f:13.png)
     
 
 ---
@@ -218,17 +217,17 @@ It happens in **two phases**:
 run_placement
 ```
 
-![11.png](attachment:afac2753-0cb5-4771-a07a-be401192a4d7:11.png)
+<p align="center"><img src="./ASSETS/11.png" alt="image 11"/></p>
 
-![12.png](attachment:f0c27cb6-3607-4382-8fdc-c37ee6744432:12.png)
+<p align="center"><img src="./ASSETS/12.png" alt="image 12"/></p>
 
-![13.png](attachment:f0c04994-f807-4f6f-a7c7-4d89f130577d:13.png)
+<p align="center"><img src="./ASSETS/13.png" alt="image 13"/></p>
 
 OpenLANE automatically optimizes cell positions and creates the **`picorv32a.placement.def`** file.
 
 This file contains the coordinates of every placed cell and the finalized layout view.
 
-![14.png](attachment:18d5fe5b-75f6-4f3e-9c63-8df337016c91:14.png)
+<p align="center"><img src="./ASSETS/14.png" alt="image 14"/></p>
 
 ---
 
@@ -249,13 +248,13 @@ magic -T $PDK_ROOT/sky130A/libs.tech/magic/sky130A.tech \
       def read picorv32a.placement.def &
 ```
 
-![15.png](attachment:c0655b89-7aeb-4d97-8530-f6b5f509401c:15.png)
+<p align="center"><img src="./ASSETS/15.png" alt="image 15"/></p>
 
 You can zoom in to verify the **standard-cell rows** and **cell orientations**.
 
 Global and detailed placement steps can be verified through the Magic viewer.
 
-![16.png](attachment:d373bdd5-f4a1-4c5e-9bae-0ec713a3dbe3:16.png)
+<p align="center"><img src="./ASSETS/16.png" alt="image 16"/></p>
 
 ---
 
