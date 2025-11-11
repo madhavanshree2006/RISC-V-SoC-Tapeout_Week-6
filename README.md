@@ -1,5 +1,5 @@
 <h1 align="center">🔳 RISC-V SoC Tapeout Program — Week 6️⃣</h1>
-<p align="center"><img src="./ASSETS/0.png" width="500" alt="OpenROAD CTS banner"/></p>
+<p align="center"><img src="week6.png" width="500" alt="OpenROAD CTS banner"/></p>
 
 ---
 
