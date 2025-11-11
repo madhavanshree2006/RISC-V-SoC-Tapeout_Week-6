@@ -57,7 +57,7 @@ All these tools integrate seamlessly under one automated environment — **OpenL
 
 ### ⚙️ **3. The OpenLANE Flow**
 
-![0.jpg](attachment:1ade585e-b9d2-4398-ab99-4b2aa24c1ca4:0.jpg)
+<p align="center"><img src="./ASSETS/0.png" alt="image 1"/></p>
 
 **OpenLANE** is a fully automated open-source RTL-to-GDSII flow built on top of the **SkyWater Sky130 PDK**.
 
