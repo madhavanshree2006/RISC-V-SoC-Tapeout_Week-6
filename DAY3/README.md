@@ -1,4 +1,4 @@
----
+
 
 ### 🛠️ Day 3 — Custom Library Cell Design using Magic & NGSPICE
 
@@ -46,7 +46,7 @@ ls -la
 
 ```
 
-![1.png](attachment:bfccab22-a7a4-41cc-a0da-00c107922344:1.png)
+![1.png](week6%20day3/1.png)
 
 ---
 
@@ -59,7 +59,7 @@ magic -T sky130A.tech sky130_inv.mag &
 
 ```
 
-![2.png](attachment:f27d44ed-b406-4fdb-925f-00694de385b9:2.png)
+![2.png](week6%20day3/2.png)
 
 ---
 
@@ -79,7 +79,7 @@ Example output:
 Transistor width < 0.42um (diff/tap.2)
 ```
 
-![3.png](attachment:a7a8bd1d-1b28-4805-8520-169a42c099be:3.png)
+![3.png](week6%20day3/3.png)
 
 ---
 
@@ -97,13 +97,13 @@ ext2spice
 box
 ```
 
-![4.png](attachment:1f1e57f9-8724-4935-a0eb-dbd7a22747e0:4.png)
+![4.png](week6%20day3/4.png)
 
-![5.png](attachment:eaa2af1e-d5d1-4c1c-8768-f6241584bffb:5.png)
+![5.png](week6%20day3/5.png)
 
 This process creates a file named **sky130_inv.spice** containing all device and parasitic details.
 
-![6.png](attachment:2c91a335-56b0-4ef3-9395-4a9ea5292e59:6.png)
+![6.png](week6%20day3/6.png)
 
 ---
 
@@ -133,14 +133,14 @@ run
 
 ```
 
-![7.png](attachment:0ac9fc89-f7f3-493a-a6af-6860c3911530:7.png)
+![7.png](week6%20day3/7.png)
 
 <br>
 
 <p align="center">⬇️</p>
 <br>
 
-![8.png](attachment:56f70930-e116-4f8d-838b-86e02816d528:8.png)
+![8.png](week6%20day3/8.png)
 
 ---
 
@@ -153,7 +153,7 @@ ngspice sky130_inv.spice
 
 ```
 
-![9.png](attachment:8eae9627-9809-4caa-bb03-72bce506ec4e:9.png)
+![9.png](week6%20day3/9.png)
 
 Inside the simulator:
 
@@ -162,11 +162,11 @@ plot Y vs time A
 
 ```
 
-![10.png](attachment:3aa66c50-d189-4785-bcb0-1407e1fef8b4:10.png)
+![10.png](week6%20day3/10.png)
 
 Full view of the plot:
 
-![11.png](attachment:87ef48f9-89eb-4f1b-8f8a-30c6908362da:11.png)
+![11.png](week6%20day3/11.png)
 
 The plotted waveform displays **input (A)** and **output (Y)** signals, from which you can calculate:
 
@@ -174,7 +174,7 @@ The plotted waveform displays **input (A)** and **output (Y)** signals, from whi
 - Fall Time (t_f)
 - Propagation Delay (t_pHL / t_pLH)
 
-![12.png](attachment:9e37404b-8208-49c8-812c-a6062436ef4f:12.png)
+![12.png](week6%20day3/12.png)
 
 ---
 
@@ -191,7 +191,7 @@ drc why
 
 Output:
 
-![13.png](attachment:c2e1410c-bfa5-442f-babd-ee17e6e44cb5:13.png)
+![13.png](week6%20day3/13.png)
 
 ```
 No errors found.
