@@ -57,6 +57,8 @@ All these tools integrate seamlessly under one automated environment — **OpenL
 
 ### ⚙️ **3. The OpenLANE Flow**
 
+![0.jpg](attachment:1ade585e-b9d2-4398-ab99-4b2aa24c1ca4:0.jpg)
+
 **OpenLANE** is a fully automated open-source RTL-to-GDSII flow built on top of the **SkyWater Sky130 PDK**.
 
 It streamlines each design stage through Tcl-based scripting and runs inside a Docker container for environment consistency.
@@ -117,10 +119,9 @@ cd ~/work/tools/openlane_working_dir/openlane
 docker
 ./flow.tcl -interactive
 package require openlane 0.9
-
 ```
 
-*(Screenshot: Docker initialization and OpenLANE package load)*
+![1.png](attachment:57c86a2b-8b9e-4b03-915c-a572226f7983:1.png)
 
 ---
 
@@ -129,13 +130,12 @@ package require openlane 0.9
 I prepared the reference SoC design `picorv32a`, which automatically generates configuration files and working directories.
 
 ```bash
-prep -design picorv32a
-
+prep -design picorv32
 ```
 
 The above command initializes a new run directory inside `designs/picorv32a/runs/`, where all flow reports (synthesis, placement, etc.) are stored.
 
-*(Screenshot: Design preparation outputs)*
+![2.png](attachment:ae34f067-10c8-4423-982a-714129ad08ed:2.png)
 
 ---
 
@@ -145,19 +145,21 @@ The synthesis stage was executed using **Yosys**, which translates RTL code into
 
 ```bash
 run_synthesis
-
 ```
+
+![3.png](attachment:20559b05-bdac-4f00-a44b-453aaea11e11:3.png)
+
+![4.png](attachment:ea2acbc6-6aff-473f-a2cc-9e350a18a97a:4.png)
 
 After synthesis, I examined the generated report:
 
 ```bash
 less runs/30-10_08-35/reports/synthesis/1-yosys_4.stat.rpt
-
 ```
 
 This file summarizes the total number of logic cells, flip-flops, and overall logic area.
 
-*(Screenshot: Yosys synthesis report output)*
+![5.png](attachment:efcb9788-caca-462f-af7d-ce177d15b389:5.png)
 
 ---
 
@@ -171,7 +173,7 @@ Flop Ratio=Total CellsNumber of DFFs=148761613=0.1084 (10.84%)
 
 This ratio helps estimate sequential logic density.
 
-*(Screenshot: Calculation result)*
+![6.png](attachment:1aaded2b-a4ad-4628-815b-f823baa06095:6.png)
 
 ---
 
